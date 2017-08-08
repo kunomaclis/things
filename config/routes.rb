@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
- resources :songs
- get '/' => 'songs#index'
+  devise_for :users
+  resources :songs
+  get '/' => 'songs#index'
 end
