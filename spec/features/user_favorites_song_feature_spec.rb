@@ -1,21 +1,26 @@
 require 'rails_helper'
 
-# feature "user session" do
+feature "user favoritings" do
 
-#   scenario "the user can register for the site" do
-#     # Create a most recent game that should definitely appear in the list
-#     visit "/"
+  scenario "the user can favorite a song" do
 
-#     click_link("Sign up")
+    user = User.create!(email: "rachey@test.com", password: "tested")
 
-#     expect(page).to have_current_path new_user_registration_path
+    visit "/"
 
-#     fill_in("Email", with: "rachelfaker@test.com")
-#     fill_in("Password", with: "tested")
-#     fill_in("Password confirmation", with: "tested")
+    click_link("Sign in")
 
-#     click_button("Sign up")
+    expect(page).to have_current_path new_user_session_path
 
-#     expect(page).to have_current_path '/'
-#   end
-# end
+    fill_in("Email", with: user.email)
+    fill_in("Password", with: "tested")
+
+    click_button("Log in")
+
+    expect(page).to have_current_path '/'
+
+    within(".recent-songs") do
+        click_link("favorite")
+    end
+  end
+end

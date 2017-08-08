@@ -2,11 +2,15 @@
 
 <table class="recent-songs">
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Artist</th>
   </tr>
   <% @songs.each do |song| %>
   <tr>
+  <% if current_user %>
+    <td><%= link_to "favorite", "/users/#{current_user.id}/songs/#{song.id}", :method => :post, :id => "favorite" %></td>
+  <% end %>
     <td><%= song.name %></td>
     <td><%= song.artist %></td>
   </tr>

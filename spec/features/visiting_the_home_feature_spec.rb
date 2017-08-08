@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "visiting the homepage" do
-  scenario "the user sees a list of recent games and can view them" do
+  scenario "the user sees a list of recent songs and can view them" do
     # Create a most recent game that should definitely appear in the list
     most_recent_song = Song.create!(name: "Butter", artist: "A Tribe Called Quest")
 
