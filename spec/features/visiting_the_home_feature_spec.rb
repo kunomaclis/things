@@ -12,9 +12,3 @@ feature "visiting the homepage" do
     end
   end
 end
-
-
-# User.songs and Songs.user
-# User favorites a song
-# User.songs << song_object
-# Song.users << User_object
